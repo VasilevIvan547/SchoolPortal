@@ -1,0 +1,24 @@
+﻿<Page x:Class="SсhoolPortal.AdminAuthorization"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SсhoolPortal"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1000"
+      Title="AdminAuthorization">
+
+    <Grid Background="#ebeded">
+        <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="50" MaxWidth="550" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Введите код" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+                <PasswordBox x:Name="AdminCode" materialDesign:HintAssist.Hint="Введите код" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Height="40"/>
+                <Button Content="Войти" Margin="0 20" Height="35" Cursor="Hand" Click="Button_Click" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

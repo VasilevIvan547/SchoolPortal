@@ -1,0 +1,43 @@
+﻿<Page x:Class="SсhoolPortal.ElectronicJournal"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SсhoolPortal"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1000"
+      Title="ElectronicJournal">
+
+    <Grid Background="#ebeded">
+        <Border MinWidth="700" MinHeight="350" Margin="15" Background="White" VerticalAlignment="Center" Padding="50" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Электронный журнал" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+
+                <Grid Margin="0 0 0 20">
+                    <ComboBox materialDesign:HintAssist.Hint="Группа" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="40" MinWidth="100"/>
+                    <ComboBox materialDesign:HintAssist.Hint="Предмет" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="40" MinWidth="100"/>
+                    <DatePicker materialDesign:HintAssist.Hint="Дата" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Height="40" MinWidth="100"/>
+                </Grid>
+
+                <DataGrid AutoGenerateColumns="False" x:Name="Grid" >
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Binding="{Binding }" Header="ФИО" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding }" Header="05.06.2022" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding }" Header="06.06.2022" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding }" Header="07.06.2022" Width="140"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Grid Margin="0 20 0 20" VerticalAlignment="Bottom">
+                    <Button HorizontalAlignment="Right" Content="Сохранить"/>
+                    <Button HorizontalAlignment="Left" Content="Назад" Style="{StaticResource MaterialDesignFlatButton}"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

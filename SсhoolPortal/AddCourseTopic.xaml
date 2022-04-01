@@ -1,0 +1,56 @@
+﻿<Page x:Class="SсhoolPortal.AddCourseTopic"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SсhoolPortal"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddCourseTopic">
+
+    <Grid Background="#ebeded">
+        <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="50" MaxWidth="550" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Добавление темы в курс" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+                <ComboBox x:Name="CourseInfo" ItemsSource="{Binding Path=Courses}" materialDesign:HintAssist.Hint="Курс" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="40">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Name}"/>
+                                <TextBlock Text=" Спикер: "/>
+                                <TextBlock Text="{Binding Path=Teachers.Surname}"/>
+                                <TextBlock Text=" "/>
+                                <TextBlock Text="{Binding Path=Teachers.Name}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <ComboBox x:Name="TopicInfo" ItemsSource="{Binding Path=Topics}" materialDesign:HintAssist.Hint="Тема" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="40">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Name}"/>
+                                <TextBlock Text=" Длительность: "/>
+                                <TextBlock Text="{Binding Path=Hours}"/>
+                                <TextBlock Text=" часов"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+                <Grid Margin="0 20 0 20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="61*"/>
+                        <ColumnDefinition Width="389*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button HorizontalAlignment="Right" Content="Добавить" Click="Button_Click" Grid.Column="1"/>
+                    <Button HorizontalAlignment="Left" Content="Назад" Style="{StaticResource MaterialDesignFlatButton}" Cursor="Hand" Grid.ColumnSpan="2" Click="Button_Click_1"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

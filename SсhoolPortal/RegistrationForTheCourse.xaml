@@ -1,0 +1,40 @@
+﻿<Page x:Class="SсhoolPortal.RegistrationForTheCourse"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SсhoolPortal"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1000"
+      Title="RegistrationForTheCourse">
+
+    <Grid Background="#ebeded">
+        <Border MinWidth="400" Margin="15" Background="White" VerticalAlignment="Center" Padding="50" MaxWidth="550" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Запись на курс" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" HorizontalAlignment="Center"/>
+                <ComboBox x:Name="CourseInfo" materialDesign:HintAssist.Hint="Выберите курс" ItemsSource="{Binding Courses}" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Height="40">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Name}"/>
+                                <TextBlock Text=" Спикер: "/>
+                                <TextBlock Text="{Binding Path=Teachers.Surname}"/>
+                                <TextBlock Text=" "/>
+                                <TextBlock Text="{Binding Path=Teachers.Name}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+
+                <Grid Margin="0 20 0 20">
+                    <Button HorizontalAlignment="Right" Content="Записаться" Click="Button_Click"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
